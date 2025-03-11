@@ -1,0 +1,18 @@
+trigger:
+- main  # Change this to your branch name if different
+
+pool:
+  name: 'Default'  # Uses your self-hosted agent
+
+steps:
+- script: |
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+  displayName: 'Install Dependencies'
+
+- script: |
+    robot --output NONE --report NONE --log NONE \
+      --variable browserName:Chrome \
+      --variable version:latest \
+      --variable ROBOT_BROWSER:Chrome Tests/sample_test.robot
+  displayName: 'Run Robot Framework Tests'
