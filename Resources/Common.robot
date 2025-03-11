@@ -3,11 +3,14 @@ Library  SeleniumLibrary
 Library  LambdaTestStatus.py
 
 *** Variables ***
-${BROWSER}          ${ROBOT_BROWSER}
-&{lt_options}       browserName=${browserName}      name=RobotFramework Lambda Test    buildName=Robot Build
-${REMOTE_URL}       http://%{LT_USERNAME}:%{LT_ACCESS_KEY}@hub.lambdatest.com/wd/hub
+${BROWSER}          Chrome
+${BROWSER_VERSION}  119.0
+${REMOTE_URL}       http://anshulr:LT_Vafdmse65NnAXvVWbRuR6d0Z9Qj7xq1e9AUI2qpbgK8vamb@hub.lambdatest.com/wd/hub
 ${TIMEOUT}          30000
 ${IMPLICIT_WAIT}    9seconds
+
+&{lt_options}       browserName=${BROWSER}      browserVersion=${BROWSER_VERSION}  
+...                 name=RobotFramework Lambda Test    buildName=Robot Build
 
 *** Keywords ***
 Open test browser
