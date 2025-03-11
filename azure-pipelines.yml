@@ -11,5 +11,5 @@ steps:
   displayName: 'Install Dependencies'
 
 - script: |
-    robot tests/example.robot
+    robot Tests/sample_test.robot
   displayName: 'Run Robot Framework Tests'
