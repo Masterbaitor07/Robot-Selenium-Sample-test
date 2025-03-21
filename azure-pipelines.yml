@@ -4,6 +4,9 @@ trigger:
 pool:
   name: 'Default'  # Uses your self-hosted agent
 
+variables:
+  TEST_NAME: "HELLO WORLD"  # Ensures TEST_NAME is set properly
+
 steps:
 - script: |
     python -m pip install --upgrade pip
@@ -12,7 +15,8 @@ steps:
   displayName: 'Install Dependencies (Including Pabot)'
 
 - script: |
-    pabot --processes 2 Tests/
+    echo "Running test: $TEST_NAME"
+    pabot --processes 2 --test "$TEST_NAME" Tests/
   displayName: 'Run Robot Framework Tests in Parallel using Pabot'
   env:
-    TEST_NAME: $(TEST_NAME) 
+    TEST_NAME: $(TEST_NAME)  # Passes the variable to the script
