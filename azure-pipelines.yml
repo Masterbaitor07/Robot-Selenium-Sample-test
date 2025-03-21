@@ -15,6 +15,6 @@ steps:
   displayName: 'Install Dependencies (Including Pabot)'
 
 - script: |
-    echo "Running test: $TEST_NAME"
-    pabot --processes 2 --test "$TEST_NAME" Tests/
+    echo Running test: %TEST_NAME%
+    pabot --processes 2 --test %TEST_NAME% Tests/
   displayName: 'Run Robot Framework Tests in Parallel using Pabot'
