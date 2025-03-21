@@ -18,5 +18,3 @@ steps:
     echo "Running test: $TEST_NAME"
     pabot --processes 2 --test "$TEST_NAME" Tests/
   displayName: 'Run Robot Framework Tests in Parallel using Pabot'
-  env:
-    TEST_NAME: $(TEST_NAME)  # Passes the variable to the script
