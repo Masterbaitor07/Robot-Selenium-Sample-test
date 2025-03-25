@@ -7,6 +7,14 @@ pool:
 variables:
   TEST_NAME: "HELLO WORLD"  # Ensures TEST_NAME is set properly
 
+schedules:
+  - cron: "35 15 * * *"  # Runs daily at 9:05 PM IST (15:35 UTC)
+    displayName: "Daily 9:05 PM IST Build"
+    branches:
+      include:
+        - main  # Specify the branch to trigger the schedule
+    always: true  # Set to true if you want it to run even if there are no changes
+
 steps:
 - script: |
     python -m pip install --upgrade pip
