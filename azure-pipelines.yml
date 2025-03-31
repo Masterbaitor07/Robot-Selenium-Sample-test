@@ -1,13 +1,23 @@
-trigger:
-- main  # Change this to your branch name if different
+trigger: none  # Ensures it doesn't run automatically on commit
+
+schedules:
+- cron: "55 16 31 3 *"  # Runs at 04:55 PM UTC (which is 10:25 PM IST)
+  displayName: "One-Time Run at 10:25 PM IST"
+  branches:
+    include:
+    - main
+  always: true  # Ensures execution even if no code changes
+
 pool:
   name: 'Default'  # Uses your self-hosted agent
+
 steps:
 - script: |
     python -m pip install --upgrade pip
     pip install robotframework-pabot
     pip install -r requirements.txt
   displayName: 'Install Dependencies (Including Pabot)'
+
 - script: |
     pabot --processes 2 Tests/
   displayName: 'Run Robot Framework Tests in Parallel using Pabot'
