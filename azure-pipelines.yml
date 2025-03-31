@@ -1,28 +1,13 @@
 trigger:
 - main  # Change this to your branch name if different
-
 pool:
   name: 'Default'  # Uses your self-hosted agent
-
-variables:
-  TEST_NAME: "HELLO WORLD"  # Ensures TEST_NAME is set properly
-
-schedules:
-  - cron: "40 15 * * *"   # Runs daily at 9:05 PM IST (15:35 UTC)
-    displayName: "Daily 9:05 PM IST Build"
-    branches:
-      include:
-        - main  # Specify the branch to trigger the schedule
-    always: true  # Set to true if you want it to run even if there are no changes
-
 steps:
 - script: |
     python -m pip install --upgrade pip
     pip install robotframework-pabot
     pip install -r requirements.txt
   displayName: 'Install Dependencies (Including Pabot)'
-
 - script: |
-    echo Running test: %TEST_NAME%
-    pabot --processes 2 --test %TEST_NAME% Tests/
+    pabot --processes 2 Tests/
   displayName: 'Run Robot Framework Tests in Parallel using Pabot'
