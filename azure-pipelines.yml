@@ -1,6 +1,6 @@
 trigger: none  # Ensures it doesn't run automatically on commit
 schedules:
-- cron: "57 17 31 3 *"  # Runs at 05:30 PM UTC (which is 11:00 PM IST)
+- cron: "00 16 01 4 *"  # Runs at 05:30 PM UTC (which is 11:00 PM IST)
   displayName: "One-Time Run at 11:00 PM IST"
   branches:
     include:
