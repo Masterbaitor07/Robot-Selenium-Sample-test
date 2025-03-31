@@ -1,7 +1,7 @@
 trigger: none  # Ensures it doesn't run automatically on commit
 
 schedules:
-- cron: "05 18 * * *"  # Runs at 18:05 UTC (11:35 PM IST)
+- cron: "15 18 * * *"  # Runs at 18:05 UTC (11:35 PM IST)
   displayName: "Daily Run at 11:35 PM IST"
   branches:
     include:
