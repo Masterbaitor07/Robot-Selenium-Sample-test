@@ -5,7 +5,7 @@ Library  LambdaTestStatus.py
 *** Variables ***
 ${BROWSER}          Chrome
 ${BROWSER_VERSION}  119.0
-${REMOTE_URL}       http://utkarshb:jBia0rbsZOK9wZH2hal1A6IlVB7SCPuMdLwAq3CprQOqWzJWwI@hub.lambdatest.com/wd/hub
+${REMOTE_URL}       http://anshulr:LT_Vafdmse65NnAXvVWbRuR6d0Z9Qj7xq1e9AUI2qpbgK8vamb@hub.lambdatest.com/wd/hub
 ${TIMEOUT}          30000
 ${IMPLICIT_WAIT}    9seconds
 
